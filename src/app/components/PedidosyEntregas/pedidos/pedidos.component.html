@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Pedidos y Entregas</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+        <div class="card-btn">
+            <button type="button" class="btn btn-outline-primary btn-block" id="pedidosBtn" routerLink='/pedidos'>
+                Pedidos
+            </button>
+            <button type="button" class="btn btn-outline-primary btn-block" id="entregasBtn" routerLink='/entregas'>
+                Entregas
+            </button>
+        </div>
+
+      <table id="example2" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+
+          <th>Proveedor</th>
+          <th>Fecha</th>
+          <th>Productos</th>
+          <th>Opción</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pedido of pedidos">
+                <td>{{ pedido.proveedor.nombre +" "+ pedido.proveedor.apellido}}</td>
+                <td>{{ pedido.created_at}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let producto of pedido.productos">
+                            Nombre: {{producto.producto.nombre}} / {{producto.cantidad}}
+                        </li>
+                    </ul>
+                </td>
+              <td class="project-actions">
+                <a class="btn btn-info btn-sm" [routerLink]="" >
+                  <i class="fas fa-pencil-alt"> </i>
+                </a>
+                <a class="btn btn-danger btn-sm" (click)="deletePedido(pedido._id)">
+                  <i class="fas fa-trash"> </i>
+                </a>
+              </td>
+            </tr>   
+       
+            
+
+        <tr>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+
+            <th>Proveedor</th>
+            <th>Fecha</th>
+            <th>Productos</th>
+            <th>Opción</th>
+        </tr>
+        </tfoot>
+      </table>
+
+      <a routerLink="/crear-pedido" class="btn-crear btn-outline-primary mat-button-toggle ">Crear Pedido</a>
+    </div>
+    <!-- /.card-body -->
+  </div>
+
+

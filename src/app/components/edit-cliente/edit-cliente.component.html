@@ -1,0 +1,55 @@
+<section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Editar cliente</h1>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  
+  <!-- Main content -->
+  <section class="content" style="width: 96%; margin: 0px auto">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-body" [formGroup]="nameForm">
+           
+            
+            <div class="row">
+
+              <div class="form-group col-md-6">
+                <label for="inputName">DNI</label>
+                <input type="text" id="name" class="form-control" formControlName="DNI"/>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputName">Nombre</label>
+                <input type="text" id="name" class="form-control" formControlName="nombre"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="inputName">Apellido</label>
+                <input type="text" id="name" class="form-control" formControlName="apellido"/>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <a routerLink="/inventario" class="btn btn-secondary">Cancelar</a>
+        <input
+          type="submit"
+          value="Editar cliente"
+          class="btn btn-success float-right"
+          (click)=editCustomer()
+        />
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->

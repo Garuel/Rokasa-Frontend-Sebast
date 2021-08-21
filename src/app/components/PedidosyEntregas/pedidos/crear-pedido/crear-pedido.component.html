@@ -1,0 +1,118 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Crear Pedido</h1>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <!-- Default box -->
+    <div class="card">
+      <div class="card-body row">
+        <div
+          class="
+            col-5
+            text-center
+            d-flex
+            align-items-center
+            justify-content-center
+          "
+        >
+          <div class="">
+            <h2>Crear Pedido</h2>
+            <p class="lead mb-5">Llenar todos los campos del formulario</p>
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="container-fluid">
+            <form [formGroup]="formularioDeProveedor">  
+            <!-- Informacion del proveedor -->
+            <div class="row">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text">Proveedor</label>
+                </div>
+                <select class="custom-select" formControlName="id">
+                  <option option value="" disabled selected>Elige...</option>
+                  <option *ngFor="let proveedor of proveedores" [value]=proveedor._id>
+                      {{proveedor.nombre}} {{proveedor.apellido}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            </form>
+
+            <form [formGroup]="formularioDeProducto">
+              <!-- Informacion del producto -->
+              <div class="row">
+                <div class="input-group mb-3">
+                  <!-- Seleccion de producto -->
+                  <div class="col-12">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text">Producto</label>
+                    </div>
+                    <select class="custom-select" formControlName="id">
+                      <option option value="    " disabled selected>Elige...</option>
+                      <option *ngFor="let producto of productos" [value]=producto._id>
+                          NOMBRE: {{producto.nombre}} - PRECIO DE COMPRA: S/.{{producto.precioCompra | number: '1.2-2'}}
+                      </option>
+                    </select>
+                  </div>
+  
+                  <!-- Especificacion de cantidad -->
+                  <div class="col-12">
+                    <input type="number" class="form-control" placeholder="Cantidad" formControlName="cantidad">
+                  </div>
+  
+                  <!-- Boton de agregar producto -->
+                  <div class="col-12 mt-4 d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn btn-primary" (click)="agregarProductoAPedido()">Agregar producto</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+
+          </div>
+          
+      
+
+          <!-- Tabla de productos agregados al pedido -->
+          <h4>Productos en tu pedido</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre del Producto</th>
+                <th scope="col">Precio de compra</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items; let i = index">
+                <th scope="row">{{i}}</th>
+                <td>{{item.producto.nombre}}</td>
+                <td>S/.{{item.producto.precioCompra | number: '1.2-2'}}</td>
+                <td>{{item.cantidad}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="realizarPedido()">Realizar pedido</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>

@@ -1,0 +1,75 @@
+<section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Agregar nuevo producto</h1>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  
+  <!-- Main content -->
+  <section class="content" style="width: 96%; margin: 0px auto">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-body" [formGroup]="nameForm">
+            <div class="row">
+              <div class="form-group col-md-8">
+                <label for="name">Nombre del producto</label>
+                <input type="text" id="name" class="form-control" formControlName="nombre" />
+              </div>
+              <div class="form-group col-md-4">
+                <label for="name">SKU</label>
+                <input type="text" id="name" class="form-control" formControlName="sku" />
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputName">Stock</label>
+                <input type="number" id="inputName" class="form-control" formControlName="stock" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputStatus">Unidad de venta</label>
+              <select id="inputStatus" class="form-control custom-select" formControlName="uniVenta">
+                <option selected disabled>Selecciona uno</option>
+                <option>Unidad</option>
+                <option>Bolsa</option>
+                <option>Kilo</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="inputName">Precio de Venta</label>
+                <input type="number" id="inputName" class="form-control" formControlName="preVenta"/>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputName">Precio de Compra</label>
+                <input type="number" id="inputName" class="form-control" formControlName="preCompra"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="inputName">Proveedor</label>
+                <input type="text" id="inputName" class="form-control" formControlName="proveedor"/>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <a routerLink="/inventario" class="btn btn-secondary">Cancelar</a>
+        <input
+          type="submit"
+          value="Agregar producto"
+          class="btn btn-success float-right"
+          (click)=editProduct()
+        />
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->

@@ -1,0 +1,68 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Crear Entrega</h1>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-body row">
+          <div
+            class="
+              col-5
+              text-center
+              d-flex
+              align-items-center
+              justify-content-center
+            "
+          >
+            <div class="">
+              <h2>Crear Entrega</h2>
+              <p class="lead mb-5">Llenar todos los campos del formulario</p>
+            </div>
+          </div>
+          <div class="col-7">
+            <div class="container-fluid">
+              <form [formGroup]="formularioDePedido">  
+              <!-- Informacion del proveedor -->
+              <div class="row">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text">Pedidos</label>
+                  </div>
+                  <select class="custom-select" formControlName="id">
+                    <option option value="" disabled selected>Elige...</option>
+                    <option *ngFor="let pedido of pedidos" [value]=pedido._id>
+                        {{pedido._id}} {{pedido.proveedor.nombre}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              </form>
+  
+                
+            </div>
+            
+        
+  
+            <div class="form-group">
+              <button type="button" class="btn btn-primary" (click)="realizarEntrega()">Realizar Entrega</button>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  
